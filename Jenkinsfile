@@ -7,7 +7,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "768477844960.dkr.ecr.ca-central-1.amazonaws.com/hotel"
+        registry = "768477844960.dkr.ecr.ca-central-1.amazonaws.com/hotelapp10"
     }
     stages {
         stage('Checkout') {
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     sh 'aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 768477844960.dkr.ecr.ca-central-1.amazonaws.com'
-                    sh 'docker push 768477844960.dkr.ecr.ca-central-1.amazonaws.com/hotel:$BUILD_NUMBER'
+                    sh 'docker push 768477844960.dkr.ecr.ca-central-1.amazonaws.com/hotelapp10:$BUILD_NUMBER'
                     
                 }
             }
